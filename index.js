@@ -9,3 +9,9 @@ app.listen(
     () => console.log(`Server running on ${port}`)
 )
 
+app.get("/", function (req, res) {
+    res.json(
+        { "slackUsername": 'Adedamola Adeyemo', "backend": Yes, "age": 25, "bio": 'Passionate about problem solving' }
+    )
+}
+)
