@@ -20,9 +20,8 @@ app.get("/", function (req, res) {
 }
 )
 
-app.post("/calculator", (req,res)=>{
-
-    const {operation, x, y} = req.body;
+app.post("/calculate", (req, res) => {
+    const { operation, x, y } = req.body;
 
     const operations = {
         addition:'addition',
@@ -42,7 +41,10 @@ app.post("/calculator", (req,res)=>{
         result = x * y;
     }
 
-    res.json(
-        { "slackUsername": name, "result": result, "operation_type": operation.value }
-    )
-})
+    res.send({ "slackUsername": name, "result": result, "operation_type": operation.value });
+  }
+);
+
+
+
+
