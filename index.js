@@ -19,3 +19,30 @@ app.get("/", function (req, res) {
     )
 }
 )
+
+app.post("calculator/", (req,res)=>{
+
+    const {operation, x, y} = req.body;
+
+    const operations = {
+        addition:'addition',
+        subtraction: 'subtraction',
+        multiplication:'multiplication'
+
+    }
+
+
+    if (operation === operations.addition){
+        const result = x + y;
+    }
+    else if (operation === operations.subtraction){
+        const result = x - y;
+    }
+    else{
+        const result = x * y;
+    }
+
+    res.json(
+        { "slackUsername": name, "result": result, "operation_type": operation.value }
+    )
+})
