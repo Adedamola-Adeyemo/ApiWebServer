@@ -20,30 +20,15 @@ app.get("/", function (req, res) {
 }
 )
 
-app.post("/calculate", (req, res) => {
-    const { operation, x, y } = req.body;
+app.post("/", (req, res) => {
+    const { operation,x,y } = req.body
 
-    const operations = {
-        addition:'addition',
-        subtraction: 'subtraction',
-        multiplication:'multiplication'
+    const result = parseInt(x) + parseInt(y);
 
-    }
-
-    let result;
-    if (operation === operations.addition){
-        result = x + y;
-    }
-    else if (operation === operations.subtraction){
-        result = x - y;
-    }
-    else{
-        result = x * y;
-    }
-
-    res.send({ "slackUsername": name, "result": result, "operation_type": operation.value });
+    res.json({ slackUsername: name, result: result, operation_type: operation });
   }
 );
+
 
 app.listen(
     port,
