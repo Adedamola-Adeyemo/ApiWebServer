@@ -31,15 +31,15 @@ app.post("calculator/", (req,res)=>{
 
     }
 
-
+    let result;
     if (operation === operations.addition){
-        const result = x + y;
+        result = x + y;
     }
     else if (operation === operations.subtraction){
-        const result = x - y;
+        result = x - y;
     }
     else{
-        const result = x * y;
+        result = x * y;
     }
 
     res.json(
