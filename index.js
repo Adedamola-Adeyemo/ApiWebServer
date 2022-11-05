@@ -27,7 +27,7 @@ app.post("/calculate", (req, res) => {
 
     const result = x+y;
 
-    res.json({ slackUsername: name, result: result, "operation_type": operation });
+    res.json({ slackUsername: name, result: result, operation_type: operation.value });
   }
 );
 
