@@ -20,7 +20,7 @@ app.get("/", function (req, res) {
 }
 )
 
-app.post("/", (req, res) => {
+app.post("/calculate", (req, res) => {
     const { operation,x,y } = req.body
 
     const result = parseInt(x) + parseInt(y);
