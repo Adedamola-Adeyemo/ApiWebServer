@@ -20,7 +20,7 @@ app.get("/", function (req, res) {
 }
 )
 
-app.post("calculator/", (req,res)=>{
+app.post("/calculator", (req,res)=>{
 
     const {operation, x, y} = req.body;
 
