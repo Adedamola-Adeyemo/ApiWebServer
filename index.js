@@ -21,8 +21,11 @@ app.get("/", function (req, res) {
 )
 
 app.post("/calculate", (req, res) => {
-    const { operation,x,y } = req.body;
+    const { operation,x,y } = req.body.json;
 
+    const operations = {
+
+    }
     const result = x+y;
 
     res.json({ slackUsername: name, result: result, "operation_type": operation });
