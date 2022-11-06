@@ -21,9 +21,7 @@ app.get("/", function (req, res) {
 )
 
 app.post("/calculate", (req, res) => {
-    const { operation, x, y} = req.body;
-    x = parseInt(x);
-    y = parseInt(y);
+    const { operation_type, x, y} = req.body;
 
 
     let resu;
@@ -45,7 +43,7 @@ app.post("/calculate", (req, res) => {
 
         
     }
-    res.status(200).json({ "slackUsername": name, "result": resu, "operation_type": operation.value});
+    res.status(200).json({ "slackUsername": name, "result": resu, "operation_type": operation_type});
 })
 app.listen(
     port,
