@@ -26,7 +26,7 @@ app.post("/calculate", (req, res) => {
     y = parseInt(y);
 
 
-    let resu  = x+y;
+    let resu;
     
     switch(operation){
         case "Addition":
@@ -45,11 +45,8 @@ app.post("/calculate", (req, res) => {
 
         
     }
-    res.status(200).json({ "slackUsername": name, "result": resu, "operation_type": `${operation}`});
-   
-  }
-);
-
+    res.status(200).json({ "slackUsername": name, "result": resu, "operation_type": operation.value});
+})
 app.listen(
     port,
     () => console.log(`Server running on ${port}`)
