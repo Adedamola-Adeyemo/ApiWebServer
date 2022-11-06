@@ -21,7 +21,10 @@ app.get("/", function (req, res) {
 )
 
 app.post("/calculate", (req, res) => {
-    const { operation, x, y} = req.body
+    let { operation, x, y} = req.body;
+    x = parseInt(x);
+    y = parseInt(y);
+
 
     let resu;
     
@@ -39,12 +42,13 @@ app.post("/calculate", (req, res) => {
             break;
         default:
             resu = x+y;
+
+        res.status(200).json({ slackUsername: name, result: resu, operation_type: operation});
     }
 
-    res.status(200).json({ slackUsername: name, result: resu, operation_type: operation});
+   
   }
 );
-
 
 app.listen(
     port,
