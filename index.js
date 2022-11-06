@@ -26,7 +26,7 @@ app.post("/calculate", (req, res) => {
 
     let resu;
     
-    switch(operation){
+    switch(operation_type){
         case "Addition":
             resu = x+y;
             break;
