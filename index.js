@@ -21,13 +21,27 @@ app.get("/", function (req, res) {
 )
 
 app.post("/calculate", (req, res) => {
-    const operation = req.params.operation;
-    const x = req.params.x;
-    const y = req.params.y;
+    const { operation, x, y} = req.body
 
-    const result = x+y;
+    let resu;
+    
+    switch(operation){
+        case "Addition":
+            resu = x+y;
+            break;
 
-    res.json({ slackUsername: name, result: result, operation_type: operation.value });
+        case "Subtraction":
+            resu = x-y;
+            break;
+
+        case "Multiplication":
+            resu = x*y;
+            break;
+        default:
+            resu = x+y;
+    }
+
+    res.status(200).json({ slackUsername: name, result: resu, operation_type: operation});
   }
 );
 
